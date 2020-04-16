@@ -33,5 +33,31 @@ public class main {
             }
 
         }
+
+        // Не совсем видимо правильно изначально, но для приличия дополил вариант с прыжками.
+        Jumpable [] jumpables = {
+                new Cat(10, "Kitty", 20),
+                new Human(10, "Alex", 20),
+                new Robot(10, "Chappy", 20)
+        };
+
+        Wall [] walls = {
+                new Wall(40, "wall 1"),
+                new Wall(20, "wall 2")
+        };
+
+
+        for (int i = 0; i < jumpables.length; i++) {
+            for (int j = 0; j < walls.length; j++) {
+
+                if (walls[j].take(jumpables[i]))
+
+                    System.out.println(jumpables[i] + " успешно перепрыгнул: " + walls[j].getName() + "\n");
+                else
+                    System.out.println(jumpables[i] + " не смог перепрыгнуть:  " + walls[j].getName() + "\n");
+            }
+
+        }
     }
+
 }

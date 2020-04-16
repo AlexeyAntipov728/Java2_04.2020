@@ -25,4 +25,8 @@ public class Wall {
             return false;
         }
     }
+
+    public String getName() {
+        return name;
+    }
 }
