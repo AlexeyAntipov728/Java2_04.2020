@@ -33,9 +33,7 @@ public class LearnThreads {
         float[] arr2 = new float[halfSize];
         long a = System.currentTimeMillis();
 
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = 1.0f;
-        }
+        Arrays.fill(arr, 1.0f);
 
         System.arraycopy(arr, 0, arr1, 0, halfSize);
         System.arraycopy(arr, halfSize, arr2, 0, halfSize);
