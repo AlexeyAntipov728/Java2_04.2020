@@ -3,7 +3,7 @@ package Homework.lesson_5;
 import java.util.Arrays;
 
 public class LearnThreads {
-    static final int size = 100000;
+    static final int size = 10;
     static final int halfSize = size / 2;
     float[] arr = new float[size];
 
@@ -39,24 +39,20 @@ public class LearnThreads {
         System.arraycopy(arr, halfSize, arr2, 0, halfSize);
 
         new Thread(() -> {
-            float[] res1 = calculate(arr1);
-            System.arraycopy(res1, 0, arr1, 0, res1.length);
-
+            calculate(arr1);
         }).start();
 
         new Thread(() -> {
-            float[] res2 = calculate(arr2);
-            System.arraycopy(res2, 0, arr2, 0, res2.length);
-
+            calculate(arr2);
         }).start();
 
         System.arraycopy(arr1, 0, arr, 0, halfSize);
         System.arraycopy(arr2, 0, arr, halfSize, halfSize);
 
         System.out.println(System.currentTimeMillis() - a);
-//        System.out.println(Arrays.toString(arr1));
-//        System.out.println(Arrays.toString(arr2));
-//        System.out.println(Arrays.toString(arr));
+        System.out.println(Arrays.toString(arr1));
+        System.out.println(Arrays.toString(arr2));
+        System.out.println(Arrays.toString(arr));
 
 
 
